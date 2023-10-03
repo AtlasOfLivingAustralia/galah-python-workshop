@@ -11,7 +11,7 @@ objectives:
 - "Generate a list of species from a specified taxonomic rank"
 - "Generate a species list with counts of species observations"
 keypoints:
-- "Species lists are X"
+- "Species lists are useful to know which species are in a particular area, or for reporting"
 - "You can generate species lists from any specified rank"
 - "Generating a species list with counts takes little time and few lines of code"
 ---
@@ -30,8 +30,8 @@ First, we need to get the taxonomic ranks of Peron's Tree Frog.  To do this, we 
 galah.search_taxa(taxa="Litoria peronii")
 ```
 ```output
-    scientificName scientificNameAuthorship                                     taxonConceptID     rank   kingdom  ...   family    genus          species     vernacularName   issues
-0  Litoria peronii          (Tschudi, 1838)  https://biodiversity.org.au/afd/taxa/c584f24b-...  species  Animalia  ...  Hylidae  Litoria  Litoria peronii  Peron's Tree Frog  noIssue
+    scientificName scientificNameAuthorship     rank  ...   family    genus          species     vernacularName   issues
+0  Litoria peronii          (Tschudi, 1838)  species  ...  Hylidae  Litoria  Litoria peronii  Peron's Tree Frog  noIssue
 ```
 
 We can see from this output that the family we want to query is *Hylidae*. 
@@ -43,18 +43,18 @@ galah.galah_config(email="amanda.buyan@csiro.au")
 galah.atlas_species(taxa="Hylidae")
 ```
 ```output
-                  species                                           author                                       species_guid  ...  order   family             vernacular_name
-0         Litoria peronii                                  (tschudi, 1838)  Https://biodiversity.org.au/afd/taxa/c584f24b-...  ...  Anura  Hylidae           Peron's Tree Frog
-1          Litoria fallax                                   (peters, 1880)  Https://biodiversity.org.au/afd/taxa/f67a8d4e-...  ...  Anura  Hylidae     Eastern Dwarf Tree Frog
-2         Litoria ewingii                         (duméril & bibron, 1841)  Https://biodiversity.org.au/afd/taxa/d0e897bb-...  ...  Anura  Hylidae             Brown Tree Frog
-3           Litoria aurea                                   (lesson, 1829)  Https://biodiversity.org.au/afd/taxa/e7adefa4-...  ...  Anura  Hylidae  Green and Golden Bell Frog
-4      Litoria verreauxii                                  (duméril, 1853)  Https://biodiversity.org.au/afd/taxa/5557cf29-...  ...  Anura  Hylidae             Verreaux's Frog
-..                    ...                                              ...                                                ...  ...    ...      ...                         ...
-83  Litoria kroombitensis  Hoskin, hines, meyer, clarke & cunningham, 2013  Https://biodiversity.org.au/afd/taxa/a7a0371e-...  ...  Anura  Hylidae           Kroombit Treefrog
-84          Litoria myola                                     Hoskin, 2007  Https://biodiversity.org.au/afd/taxa/533a80d4-...  ...  Anura  Hylidae           Kuranda Tree Frog
-85   Litoria andiirrmalin                                   Mcdonald, 1997  Https://biodiversity.org.au/afd/taxa/2c53c748-...  ...  Anura  Hylidae            Andirrmalin Frog
-86      Litoria axillaris                                    Doughty, 2011  Https://biodiversity.org.au/afd/taxa/af934861-...  ...  Anura  Hylidae       Kimberley Rocket Frog
-87         Litoria lorica                          Davies & mcdonald, 1979  Https://biodiversity.org.au/afd/taxa/2edc1a0c-...  ...  Anura  Hylidae               Armoured Frog
+             Species Name   ...  Order   Family    Genus             Vernacular Name
+0         Litoria peronii   ...  Anura  Hylidae  Litoria           Peron's Tree Frog
+1          Litoria fallax   ...  Anura  Hylidae  Litoria     Eastern Dwarf Tree Frog
+2         Litoria ewingii   ...  Anura  Hylidae  Litoria           Ewing's Tree Frog
+3           Litoria aurea   ...  Anura  Hylidae  Litoria  Green And Golden Bell Frog
+4      Litoria verreauxii   ...  Anura  Hylidae  Litoria             Verreaux's Frog
+                      ...   ...  ...        ...      ...                         ...
+83  Litoria kroombitensis   ...  Anura  Hylidae  Litoria           Kroombit Treefrog
+84          Litoria myola   ...  Anura  Hylidae  Litoria            Kuranda Treefrog
+85   Litoria andiirrmalin   ...  Anura  Hylidae  Litoria     Melville Range Treefrog
+86      Litoria axillaris   ...  Anura  Hylidae  Litoria       Kimberley Rocket Frog
+87         Litoria lorica   ...  Anura  Hylidae  Litoria       Little Waterfall Frog
 ```
 
 # Adding filters: Get a list of all frogs in the family *Hylidae* in Victoria for the year 2022
@@ -85,14 +85,14 @@ Now that we have confirmed these values, we can add these filters to `atlas_spec
 galah.atlas_species(taxa="Hylidae",filters=["cl22=Victoria","year=2022"])
 ```
 ```output
-              species                                   author                                       species_guid   kingdom  ...     class  order   family             vernacular_name
-0     Litoria ewingii                 (duméril & bibron, 1841)  Https://biodiversity.org.au/afd/taxa/d0e897bb-...  Animalia  ...  Amphibia  Anura  Hylidae             Brown Tree Frog
-1     Litoria peronii                          (tschudi, 1838)  Https://biodiversity.org.au/afd/taxa/c584f24b-...  Animalia  ...  Amphibia  Anura  Hylidae           Peron's Tree Frog
-2  Litoria verreauxii                          (duméril, 1853)  Https://biodiversity.org.au/afd/taxa/5557cf29-...  Animalia  ...  Amphibia  Anura  Hylidae             Verreaux's Frog
-3  Litoria nudidigita                          (copland, 1962)  Https://biodiversity.org.au/afd/taxa/05612772-...  Animalia  ...  Amphibia  Anura  Hylidae  Leaf Green River Tree Frog
-4      Litoria fallax                           (peters, 1880)  Https://biodiversity.org.au/afd/taxa/f67a8d4e-...  Animalia  ...  Amphibia  Anura  Hylidae     Eastern Dwarf Tree Frog
-5  Litoria paraewingi  Watson, loftus-hills & littlejohn, 1971  Https://biodiversity.org.au/afd/taxa/58d661f2-...  Animalia  ...  Amphibia  Anura  Hylidae              Victorian Frog
-6  Litoria raniformis                       (keferstein, 1867)  Https://biodiversity.org.au/afd/taxa/6e63311a-...  Animalia  ...  Amphibia  Anura  Hylidae            Golden Bell Frog
+              species   ...  order   family             vernacular_name
+0     Litoria ewingii   ...  Anura  Hylidae             Brown Tree Frog
+1     Litoria peronii   ...  Anura  Hylidae           Peron's Tree Frog
+2  Litoria verreauxii   ...  Anura  Hylidae             Verreaux's Frog
+3  Litoria nudidigita   ...  Anura  Hylidae  Leaf Green River Tree Frog
+4      Litoria fallax   ...  Anura  Hylidae     Eastern Dwarf Tree Frog
+5  Litoria paraewingi   ...  Anura  Hylidae              Victorian Frog
+6  Litoria raniformis   ...  Anura  Hylidae            Golden Bell Frog
 ```
 
 # How to export your species list to csv format
@@ -140,4 +140,36 @@ print(species_list_counts)
 ```
 ```python
 species_list_counts.to_csv("hylidae_family_list_vic_2022_counts.csv")
+```
+
+# Bonus: How to create and export a species list for all species in Victoria for the year 2022 with counts
+
+```python
+galah.galah_config(email="amanda.buyan@csiro.au")
+species_list_vic = galah.atlas_species(
+    filters=["cl22=Victoria","year=2022"]
+)
+species_list_counts = galah.atlas_counts(
+    taxa=list(frog_list_vic["species"]),
+    filters=["cl22=Victoria","year=2022"],
+    group_by="species",
+    expand=False
+)
+species_list_counts.to_csv("hylidae_family_list_vic_2022_counts.csv")
+```
+```output
+# what species list looks like
+>>> species_list_vic[["Species Name","Kingdom",'Phylum', 'Class', 'Order', 'Family', 'Genus',"Vernacular Name"]]
+                               Species Name   Kingdom         Phylum  ...             Family        Genus    Vernacular Name
+0                        Gymnorhina tibicen  Animalia       Chordata  ...          Artamidae   Gymnorhina  Australian Magpie
+1     Anthochaera (Anthochaera) carunculata  Animalia       Chordata  ...       Meliphagidae  Anthochaera     Red Wattlebird
+2                            Corvus mellori  Animalia       Chordata  ...           Corvidae       Corvus       Little Raven
+3                 Malurus (Malurus) cyaneus  Animalia       Chordata  ...          Maluridae      Malurus  Superb Fairy-wren
+4                       Grallina cyanoleuca  Animalia       Chordata  ...        Monarchidae     Grallina        Magpie-lark
+...                                     ...       ...            ...  ...                ...          ...                ...
+9651                 Alleniella hymenodonta   Plantae      Bryophyta  ...        Neckeraceae   Alleniella                NaN
+9652                  Kordyana brasiliensis     Fungi  Basidiomycota  ...  Brachybasidiaceae     Kordyana                NaN
+9653                     Tubifera tomentosa  Protista      Amoebozoa  ...       Tubiferaceae     Tubifera                NaN
+9654                 Tubifera vanderheuliae  Protista      Amoebozoa  ...       Tubiferaceae     Tubifera                NaN
+9655                  Lepra novae-zelandiae     Fungi     Ascomycota  ...     Pertusariaceae        Lepra                NaN
 ```

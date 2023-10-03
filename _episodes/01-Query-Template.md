@@ -39,7 +39,7 @@ A query can be as simple as the following:
 ```
 ```output
     totalRecords
-0      130262945
+0      130570372
 ```
 
 This returns the total number of records in the Atlas of Living Australia.  This will change weekly, so this number will likely be higher for you!

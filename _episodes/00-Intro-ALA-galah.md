@@ -19,7 +19,7 @@ keypoints:
 
 # What is the ALA?
 
-The Atlas of Living Australia (ALA) provides everyone, from researchers to citizen scientists, open access to Australia's bioversity data.  This has been used in everything, from scientific research papers on X to information on Y.
+The Atlas of Living Australia (ALA) provides everyone, from researchers to citizen scientists, open access to Australia's bioversity data.  This has been used in everything, from scientific research papers on [photographs as an essential biodiversity resource](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.18813) to information on [how citizen science aids prediction of habitat suitability](https://escholarship.org/uc/item/98q8s3bv).
 
 # What is the history of the galah package?
 
@@ -68,13 +68,12 @@ To ensure that the R and Python packages are as similar as possible, we structur
 | `galah.search_all()` | `filters=`         | `galah.atlas_occurrences()` |
 |                      | `select=`          | `galah.atlas_species()`     |
 |                      | `group_by=`        | `galah.atlas_media()`       |
-|                      | `geolocate=`**     |                             |
-
-** COMING SOON
+|                      | `polygon=`         |                             |
+|                      | `bbox=`            |                             |
 
 # Ok, now how do I install and use it?  Are there other packages I need to install?
 
-To install `galah-python`, ensure that you have the terminal open.  To do this via Anaconda, go to X and then Y.
+To install `galah-python`, ensure that you have the terminal open.  To do this via Anaconda, go to `Environments`.  Choose the environment you want, and then click the button that looks like a "Play" button.  Choose `Open Terminal`.
 
 In the terminal, type
 
@@ -109,4 +108,10 @@ Now that you have installed `galah-python`, I will take you through these two ex
 - How to get occurrences of the species *Litoria peronii* and plot them on a map
 - How to get a list of all the species in the state of Victoria (or the ACT?)
 
-First, I will take you through how to build a query step by step.
+First, I will take you through how to build a query step by step.  Before this, we need to choose our Text Editor.  My preference is Jupyter Notebook.  You can open this in Anaconda by clicking the "Play" button, and choosing `Open with Jupyter Notebook`.  If you prefer working on the Terminal, type
+
+```bash
+jupyter notebook
+```
+
+and a new instance of jupyter will open in your browser.

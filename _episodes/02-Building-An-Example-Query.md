@@ -18,6 +18,16 @@ keypoints:
 ---
 #### *Note*: your number of records may be higher than the numbers listed for the rest of the lesson if you're using this later than September 2023.  As long as it is greater than or equal to the above number, the query worked.
 
+# What does Peron's Tree Frog look like?
+
+![](../fig/litoria-peronii1.png)
+
+Indiaianson CC BY NC
+
+![](../fig/litoria-peronii2.png)
+
+Jeannie CC BY NC
+
 # Step one: looking up Peron's Tree Frog
 #### <u>Download record counts of Peron's tree frog</u> since 2018 in New South Wales by FrogID
 
@@ -31,8 +41,8 @@ To check that *Litoria peronii* is the scientific name for Peron's tree frog in 
 galah.search_taxa("litoria peronii")
 ```
 ```output
-    scientificName scientificNameAuthorship                                     taxonConceptID  ...          species     vernacularName   issues
-0  Litoria peronii          (Tschudi, 1838)  https://biodiversity.org.au/afd/taxa/c584f24b-...  ...  Litoria peronii  Peron's Tree Frog  noIssue
+    scientificName scientificNameAuthorship  ...          species     vernacularName   issues
+0  Litoria peronii          (Tschudi, 1838)  ...  Litoria peronii  Peron's Tree Frog  noIssue
 ```
 
 From the output above, you can see that the vernacular name, or the common name of *Litoria peronii*, is "Peron's Tree Frog", so we have confirmed this is the species name we are looking for in the Atlas.
@@ -54,10 +64,10 @@ If you want to search for multiple taxa at once, it is possible to do so.  Here,
 galah.search_taxa(taxa=["litoria peronii","Crinia signifera", "Rhinella marina"])
 ```
 ```output
-     scientificName scientificNameAuthorship                                     taxonConceptID     rank  ...     genus           species     vernacularName   issues
-0   Litoria peronii          (Tschudi, 1838)  https://biodiversity.org.au/afd/taxa/c584f24b-...  species  ...   Litoria   Litoria peronii  Peron's Tree Frog  noIssue
-1  Crinia signifera             Girard, 1853  https://biodiversity.org.au/afd/taxa/88a99f63-...  species  ...    Crinia  Crinia signifera     Common Froglet  noIssue
-2   Rhinella marina         (Linnaeus, 1758)  https://biodiversity.org.au/afd/taxa/e79179f8-...  species  ...  Rhinella   Rhinella marina          Cane Toad  noIssue
+     scientificName scientificNameAuthorship     rank  ...     genus           species     vernacularName   issues
+0   Litoria peronii          (Tschudi, 1838)  species  ...   Litoria   Litoria peronii  Peron's Tree Frog  noIssue
+1  Crinia signifera             Girard, 1853  species  ...    Crinia  Crinia signifera     Common Froglet  noIssue
+2   Rhinella marina         (Linnaeus, 1758)  species  ...  Rhinella   Rhinella marina          Cane Toad  noIssue
 ```
 
 Now, we can get the raw record counts of Peron's Tree Frog:
@@ -69,7 +79,7 @@ galah.atlas_counts(
 ```
 ```output
    totalRecords
-0         95844
+0         95886
 ```
 
 ### Filter our data by year
@@ -106,9 +116,15 @@ galah.search_all(
 )
 ```
 ```output
-                      id                                        description   type                                               link
-592                 year  The year in which an occurrence was observed. ...  field  https://github.com/AtlasOfLivingAustralia/ala-...
-512             raw_year                                                NaN  field                                                NaN
+                    id                                        description   type                                               link
+0                 year  The year in which an occurrence was observed. ...  field  https://github.com/AtlasOfLivingAustralia/ala-...
+1             raw_year                                                NaN  field                                                NaN
+2         endDayOfYear          http://rs.tdwg.org/dwc/terms/endDayOfYear  field                                                NaN
+3       occurrenceYear  Year ranges for a search. Calculated based on ...  field                                                NaN
+4       startDayOfYear        http://rs.tdwg.org/dwc/terms/startDayOfYear  field                                                NaN
+5     raw_endDayOfYear                                                NaN  field                                                NaN
+6   raw_startDayOfYear                                                NaN  field                                                NaN
+7  namePublishedInYear   http://rs.tdwg.org/dwc/terms/namePublishedInYear  field                                                NaN
 ```
 
 As we can see by the description of the "year" field, this specifies the year in which an occurrence was observed, which is what we want.  Now, we add the filter to the above query:
@@ -121,7 +137,7 @@ galah.atlas_counts(
 ```
 ```output
    totalRecords
-0         69427
+0         69468
 ```
 
 As this is less than the 95844 records that were shown above, we can see we have already filtered the data.
@@ -138,9 +154,9 @@ galah.search_all(
 )
 ```
 ```output
-         id                                        description    type link
-692    cl22  Australian States and Territories Australian S...  layers     
-668  cl2013  ASGS Australian States and Territories Austral...  layers   
+       id                                        description    type link
+0    cl22  Australian States and Territories Australian S...  layers     
+1  cl2013  ASGS Australian States and Territories Austral...  layers  
 ```
 
 The filter name that we will use is `cl22`.  `cl22` is named as follows:
@@ -175,7 +191,7 @@ Here, we get all possible values for `cl22`, and can see that `New South Wales` 
 Now, we can apply that filter to the query as follows:
 
 ```python
-galah.search_taxa(
+galah.atlas_counts(
     taxa="litoria peronii",
     filters=["year>=2018",
              "cl22=New South Wales"]
@@ -183,7 +199,7 @@ galah.search_taxa(
 ```
 ```output
    totalRecords
-0         61952
+0         61984
 ```
 
 ### Adding other filters: Data Resources 
@@ -199,23 +215,24 @@ galah.search_all(
 )
 ```
 ```output
-                          id                                        description   type link
-144                datasetID             http://rs.tdwg.org/dwc/terms/datasetID  field  NaN
-139               dataHubUid         The Atlas thematic groups for this record.  field  NaN
-138              dataHubName                                                NaN  field  NaN
-145              datasetName  The name of the dataset for this record. Typic...  field  NaN
-141          dataProviderUid                 The Atlas ID for the data resource  field  NaN
-143          dataResourceUid  A list (concatenated and separated) of prepara...  field  NaN
-140         dataProviderName                  The data provider for this record  field  NaN
-142         dataResourceName  The data resource that supplies the record. Th...  field  NaN
-407         raw_datasetTitle                                                NaN  field  NaN
-566         text_datasetName                                                NaN  field  NaN
-137      dataGeneralizations   http://rs.tdwg.org/dwc/terms/dataGeneralizations  field  NaN
-404      raw_dataProviderUid                                                NaN  field  NaN
-406      raw_dataResourceUid                                                NaN  field  NaN
-403     raw_dataProviderName                                                NaN  field  NaN
-405     raw_dataResourceName                                                NaN  field  NaN
-402  raw_dataGeneralizations                                                NaN  field  NaN
+                         id                                        description   type link
+0                 inDataset                                                NaN  field  NaN
+1                 datasetID             http://rs.tdwg.org/dwc/terms/datasetID  field  NaN
+2                dataHubUid         The Atlas thematic groups for this record.  field  NaN
+3               datasetName  The name of the dataset for this record. Typic...  field  NaN
+4               dataHubName                                                NaN  field  NaN
+5           dataProviderUid                 The Atlas ID for the data resource  field  NaN
+6           dataResourceUid  A list (concatenated and separated) of prepara...  field  NaN
+7          raw_datasetTitle                                                NaN  field  NaN
+8          text_datasetName                                                NaN  field  NaN
+9          dataProviderName                  The data provider for this record  field  NaN
+10         dataResourceName  The data resource that supplies the record. Th...  field  NaN
+11      raw_dataProviderUid                                                NaN  field  NaN
+12      raw_dataResourceUid                                                NaN  field  NaN
+13      dataGeneralizations   http://rs.tdwg.org/dwc/terms/dataGeneralizations  field  NaN
+14     raw_dataProviderName                                                NaN  field  NaN
+15     raw_dataResourceName                                                NaN  field  NaN
+16  raw_dataGeneralizations                                                NaN  field  NaN
 ```
 
 For our query, we will be choosing `dataResourceName`.  This is because FrogID is a data resource for the ALA, and searching under `dataResourceName` rather than `dataResourceUid` will yield better results in this case.
@@ -251,8 +268,8 @@ galah.search_values(
 )
 ```
 ```output
-               field category
-33  dataResourceName   FrogID
+              field category
+0  dataResourceName   FrogID
 ```
 
 Now, we can add the final filter to our query.

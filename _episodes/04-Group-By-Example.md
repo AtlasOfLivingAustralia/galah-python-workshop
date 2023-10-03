@@ -31,9 +31,9 @@ galah.atlas_counts(
 ```
 ```output
                                      dataResourceName  count
-0                                    NSW BioNet Atlas  31671
+0                                    NSW BioNet Atlas  31673
 1                                              FrogID  27969
-2                               iNaturalist Australia   1432
+2                               iNaturalist Australia   1462
 3                                        FrogWatch SA    582
 4                         Earth Guardians Weekly Feed    157
 5                                          NatureMapr     96
@@ -61,9 +61,9 @@ galah.atlas_counts(
 ```
 ```output
                                      dataResourceName  year  count
-0                                    NSW BioNet Atlas     -  31671
+0                                    NSW BioNet Atlas     -  31673
 1                                              FrogID     -  27969
-2                               iNaturalist Australia     -   1432
+2                               iNaturalist Australia     -   1462
 3                                        FrogWatch SA     -    582
 4                         Earth Guardians Weekly Feed     -    157
 5                                          NatureMapr     -     96
@@ -76,10 +76,10 @@ galah.atlas_counts(
 12                       Victorian Biodiversity Atlas     -      1
 13                                                  -  2018   9613
 14                                                  -  2019   9977
-15                                                  -  2020  26190
-16                                                  -  2021  14574
-17                                                  -  2022   1235
-18                                                  -  2023    363
+15                                                  -  2020  26191
+16                                                  -  2021  14575
+17                                                  -  2022   1237
+18                                                  -  2023    391
 ```
 
 Now, we not only have the data resources providing observations of *Litoria peronii*, we can also see how many observations there were per year.
@@ -120,7 +120,7 @@ galah.atlas_counts(
 17                                           SA Fauna  2019      1
 18                                   NSW BioNet Atlas  2020  13229
 19                                             FrogID  2020  12551
-20                              iNaturalist Australia  2020    224
+20                              iNaturalist Australia  2020    225
 21                                       FrogWatch SA  2020    136
 22                        Earth Guardians Weekly Feed  2020     25
 23                                         NatureMapr  2020     23
@@ -128,19 +128,19 @@ galah.atlas_counts(
 25                       Victorian Biodiversity Atlas  2020      1
 26                                   NSW BioNet Atlas  2021   7492
 27                                             FrogID  2021   6580
-28                              iNaturalist Australia  2021    306
+28                              iNaturalist Australia  2021    307
 29                                       FrogWatch SA  2021    138
 30                        Earth Guardians Weekly Feed  2021     28
 31                                           SA Fauna  2021     15
 32                                         NatureMapr  2021     13
 33  South Australian Museum Adelaide provider for ...  2021      2
-34                                   NSW BioNet Atlas  2022    635
+34                                   NSW BioNet Atlas  2022    637
 35                              iNaturalist Australia  2022    408
 36                                       FrogWatch SA  2022    151
 37                        Earth Guardians Weekly Feed  2022     24
 38                                         NatureMapr  2022     14
 39                  ALA species sightings and OzAtlas  2022      3
-40                              iNaturalist Australia  2023    282
+40                              iNaturalist Australia  2023    310
 41                                   NSW BioNet Atlas  2023     74
 42                                       FrogWatch SA  2023      4
 43                                         NatureMapr  2023      3

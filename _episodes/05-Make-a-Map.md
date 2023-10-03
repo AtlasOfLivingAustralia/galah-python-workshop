@@ -46,18 +46,18 @@ galah.atlas_occurrences(
 )
 ```
 ```output
-       decimalLatitude  decimalLongitude             eventDate  ...                              recordID dataResourceName occurrenceStatus
-0           -37.246800        149.375000  2020-12-27T00:00:00Z  ...  a5cd2fcd-5225-4d19-977c-b16ca5e8f1dd           FrogID          PRESENT
-1           -37.089036        149.699526  2020-12-14T00:00:00Z  ...  eebde5ef-cac4-4897-af00-cb2e39a0684f           FrogID          PRESENT
-2           -37.077693        149.874402  2018-01-06T00:00:00Z  ...  35340478-97c1-48a4-a463-991fe3a8daa0           FrogID          PRESENT
-3           -37.077241        149.874787  2018-01-06T00:00:00Z  ...  a7abc9f3-362f-469e-9076-5b55a2447b69           FrogID          PRESENT
-4           -37.070746        149.896011  2020-12-13T00:00:00Z  ...  1cc9dda8-f2d4-4f55-acf6-11c93b26da9e           FrogID          PRESENT
-...                ...               ...                   ...  ...                                   ...              ...              ...
-27642       -28.207514        153.442592  2018-11-15T00:00:00Z  ...  b094fed1-5bff-4df8-b556-cabd693c533a           FrogID          PRESENT
-27643       -28.207472        153.442497  2018-11-15T00:00:00Z  ...  5cc24fbd-8c6b-4a76-9b28-fec76ee08f37           FrogID          PRESENT
-27644       -28.207442        153.442328  2020-02-07T00:00:00Z  ...  61aa50a1-4c79-4fc3-b3ab-93538faa37b1           FrogID          PRESENT
-27645       -28.207108        153.443021  2021-02-19T00:00:00Z  ...  0324b8d1-77b0-4bf3-9ec2-6ad9efff18f2           FrogID          PRESENT
-27646       -28.186157        153.445556  2018-11-16T00:00:00Z  ...  bcf83a54-a900-4265-960a-9436356a7107           FrogID          PRESENT
+                                   recordID  catalogNumber  ... dataGeneralizations spatiallyValid
+0      0008c41d-fd35-421a-9976-8213ade88ba8            NaN  ...                 NaN           True
+1      000c1c20-bec3-4fc3-8d65-3de76961a998            NaN  ...                 NaN           True
+2      000e46ad-9ace-437c-ac31-48843f603c9c            NaN  ...                 NaN           True
+3      001229c0-4c48-486f-8d5d-5ddfe7420756            NaN  ...                 NaN           True
+4      0014b8ff-ddd5-4a24-b7ee-cb57c62ba2d2            NaN  ...                 NaN           True
+...                                     ...            ...  ...                 ...            ...
+27964  fff85846-94f6-4285-b520-219a574beaa6            NaN  ...                 NaN           True
+27965  fffa5afb-2388-4ec2-937c-d73c104352d3            NaN  ...                 NaN           True
+27966  fffb30c7-cee4-4d5d-8c36-b15721ac4565            NaN  ...                 NaN           True
+27967  fffba153-a597-4ed2-a325-8f9d3e567ae9            NaN  ...                 NaN           True
+27968  fffd964f-475f-4a9d-9763-5654fa842aee            NaN  ...                 NaN           True
 ```
 
 All of this data for each occurrence record is great!  However, say you want to only get specific columns of the table, like `decimalLatitude`,`decimalLongitude` and `scientificName`.  You can specify column names in the `fields` argument of `atlas_occurrences`:
@@ -74,17 +74,17 @@ galah.atlas_occurrences(
 ```
 ```output
         scientificName  decimalLatitude  decimalLongitude
-0      Litoria peronii       -33.989891        151.077801
-1      Litoria peronii       -30.399200        149.770567
-2      Litoria peronii       -33.714285        151.083234
-3      Litoria peronii       -34.026709        150.592730
-4      Litoria peronii       -33.746989        151.076461
+0      Litoria peronii       -32.303061        151.687980
+1      Litoria peronii       -32.809788        151.353210
+2      Litoria peronii       -29.929163        152.008692
+3      Litoria peronii       -36.354229        150.075424
+4      Litoria peronii       -34.496047        150.777103
 ...                ...              ...               ...
-27642  Litoria peronii       -30.399331        149.771156
-27643  Litoria peronii       -32.360494        152.389057
-27644  Litoria peronii       -33.650044        150.806782
-27645  Litoria peronii       -33.763595        150.968821
-27646  Litoria peronii       -34.573658        150.801913
+27964  Litoria peronii       -30.101165        153.161719
+27965  Litoria peronii       -34.053162        151.086362
+27966  Litoria peronii       -33.614032        150.697754
+27967  Litoria peronii       -34.643233        150.325404
+27968  Litoria peronii       -34.314148        150.918278
 ```
 
 # Make a map of *Litoria peronii* occurrence records since 2018 in New South Wales
