@@ -1,5 +1,5 @@
 ---
-title: "What is the ALA and the galah-python package?"
+title: "History of the `galah-python` package"
 start: true
 teaching: 10
 exercises: 0
@@ -70,48 +70,3 @@ To ensure that the R and Python packages are as similar as possible, we structur
 |                      | `group_by=`        | `galah.atlas_media()`       |
 |                      | `polygon=`         |                             |
 |                      | `bbox=`            |                             |
-
-# Ok, now how do I install and use it?  Are there other packages I need to install?
-
-To install `galah-python`, ensure that you have the terminal open.  To do this via Anaconda, go to `Environments`.  Choose the environment you want, and then click the button that looks like a "Play" button.  Choose `Open Terminal`.
-
-In the terminal, type
-
-```bash
-pip install galah-python
-```
-
-You will need other packages in this workshop, namely `matplotlib` and `geopandas`.  To install them, run
-
-```bash
-pip install matplotlib geopandas
-```
-
-Then, in the terminal, type
-
-```bash
-python
-```
-
-and, when you see three `>>>`, type
-
-```python
->>> import galah
->>> import matplotlib
->>> import geopandas
-```
-
-If you get no errors, this has installed correctly.
-
-Now that you have installed `galah-python`, I will take you through these two examples: 
-
-- How to get occurrences of the species *Litoria peronii* and plot them on a map
-- How to get a list of all the species in the state of Victoria (or the ACT?)
-
-First, I will take you through how to build a query step by step.  Before this, we need to choose our Text Editor.  My preference is Jupyter Notebook.  You can open this in Anaconda by clicking the "Play" button, and choosing `Open with Jupyter Notebook`.  If you prefer working on the Terminal, type
-
-```bash
-jupyter notebook
-```
-
-and a new instance of jupyter will open in your browser.

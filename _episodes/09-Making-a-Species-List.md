@@ -1,5 +1,5 @@
 ---
-title: "Creating Species lists"
+title: "Creating Species Lists and Filtering by Threatened Species"
 start: true
 teaching: 15
 exercises: 5

@@ -3,18 +3,18 @@ layout: workshop      # DON'T CHANGE THIS.
 # More detailed instructions (including how to fill these variables for an
 # online workshop) are available at
 # https://carpentries.github.io/workshop-template/customization/index.html
-venue: "The University Club of Western Australia"        # brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
-address: "Hacket Entrance #1, Hacket Drive, Crawley, WA 6009"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
+venue: "Virtual"        # brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
+address: "Virtual"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
 country: "au"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the institution that hosts the workshop
 language: "en"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the workshop
-latitude: "-31.975370"        # decimal latitude of workshop venue (use https://www.latlong.net/)
-longitude: "115.823140"       # decimal longitude of the workshop venue (use https://www.latlong.net)
-humandate: "Oct 9, 2023"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
-humantime: "9:30 am - 11:30 am AWST, 1:00 pm - 3:00 pm AWST"    # human-readable times for the workshop e.g., "9:00 am - 4:30 pm CEST (7:00 am - 2:30 pm UTC)"
-startdate: 2023-10-09      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
-enddate: 2023-10-09        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
+latitude: ""        # decimal latitude of workshop venue (use https://www.latlong.net/)
+longitude: ""       # decimal longitude of the workshop venue (use https://www.latlong.net)
+humandate: "Mar 20, 2025"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
+humantime: "1:45 pm - 4:45 am AEST"    # human-readable times for the workshop e.g., "9:00 am - 4:30 pm CEST (7:00 am - 2:30 pm UTC)"
+startdate: 2025-03-20      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
+enddate: 2025-03-20        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
 instructor: ["Amanda Buyan"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
-helper: []     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
+helper: ["Martin Westgate"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
 email: ["amanda.buyan@csiro.au","support@ala.org.au"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
 collaborative_notes:  # optional: URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)
 eventbrite:           # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
@@ -378,7 +378,7 @@ The lesson taught in this workshop is being piloted and a precise schedule is ye
 
 
 {% comment %}
-SETUP
+SETUP 
 
 Delete irrelevant sections from the setup instructions.  Each
 section is inside a 'div' without any classes to make the beginning
@@ -391,6 +391,9 @@ please preview your site before committing, and make sure to run
 
 <h2 id="setup">Setup</h2>
 
+<p>
+Installation instructions are found on the next page.
+</p>
 <p>
   To participate in a
   {% if site.carpentry == "swc" %}
