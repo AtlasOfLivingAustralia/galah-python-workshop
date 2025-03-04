@@ -79,7 +79,7 @@ galah.atlas_counts(
 ```
 ```output
    totalRecords
-0         95886
+0         88184
 ```
 
 ### Filter our data by year
@@ -137,10 +137,10 @@ galah.atlas_counts(
 ```
 ```output
    totalRecords
-0         69468
+0         62273
 ```
 
-As this is less than the 95844 records that were shown above, we can see we have already filtered the data.
+As this is less than the 88184 records that were shown above, we can see we have already filtered the data.
 
 ### Adding other filters: Australian States
 
@@ -199,7 +199,7 @@ galah.atlas_counts(
 ```
 ```output
    totalRecords
-0         61984
+0         47743
 ```
 
 ### Adding other filters: Data Resources 
@@ -284,5 +284,5 @@ galah.atlas_counts(
 ```
 ```output
    totalRecords
-0         27969
+0         39840
 ```
