@@ -33,8 +33,8 @@ galah.galah_config(atlas="Australia",email="your-email-here")
 galah.search_taxa(taxa="Petroica boodang")
 ```
 ```output
-                scientificName scientificNameAuthorship                                     taxonConceptID  ...           species vernacularName   issues
-0  Petroica (Petroica) boodang           (Lesson, 1838)  https://biodiversity.org.au/afd/taxa/a3e5376b-...  ...  Petroica boodang  Scarlet Robin  noIssue
+                scientificName scientificNameAuthorship  ...           species vernacularName   issues
+0  Petroica (Petroica) boodang           (Lesson, 1838)  ...  Petroica boodang  Scarlet Robin  noIssue
 ```
 
 It can also return taxonomic information for multiple species, including synonyms and Indigneous names.
@@ -66,8 +66,8 @@ Please use the `scientific_name` argument to clarify taxa.
 galah.search_taxa(scientific_name={"kingdom": ["Fungi"],"scientificName": ["Morganella"]})
 ```
 ```output
-  scientificName scientificNameAuthorship                                     taxonConceptID   rank  ...       order       family       genus   issues
-0     Morganella                   Zeller  https://id.biodiversity.org.au/node/fungi/6009...  genus  ...  Agaricales  Agaricaceae  Morganella  noIssue
+  scientificName scientificNameAuthorship   rank  ...       order       family       genus   issues
+0     Morganella                   Zeller  genus  ...  Agaricales  Agaricaceae  Morganella  noIssue
 ```
 
 This disambiguation of the *Morganella* taxa can then be used by `atlas_counts()`, `atlas_occurrences()`, `atlas_species()` or `atlas_media()` by providing the keyword `scientific_name` to any of these functions.
@@ -110,7 +110,7 @@ galah.atlas_counts(taxa="Petroica boodang")
 ```
 ```output
    totalRecords
-0        133664
+0        132331
 ```
 
 ```python
@@ -122,16 +122,16 @@ galah.atlas_counts(taxa=aus_petroica,group_by=["species","vernacularName"])
 ```output
                   species               vernacularName   count
 0        Petroica boodang        Eastern Scarlet Robin    3766
-1        Petroica boodang                Scarlet Robin  129596
+1        Petroica boodang                Scarlet Robin  128261
 2        Petroica boodang  South-western Scarlet Robin     211
-3        Petroica boodang      Tasmanian Scarlet Robin      91
-4     Petroica goodenovii             Red-capped Robin  120523
-5     Petroica multicolor                Pacific Robin    6795
-6      Petroica phoenicea                  Flame Robin   88884
+3        Petroica boodang      Tasmanian Scarlet Robin      93
+4     Petroica goodenovii             Red-capped Robin  120947
+5     Petroica multicolor                Pacific Robin    6856
+6      Petroica phoenicea                  Flame Robin   82751
 7   Petroica rodinogaster          Mainland Pink Robin      69
-8   Petroica rodinogaster                   Pink Robin   15753
-9   Petroica rodinogaster         Tasmanian Pink Robin      45
-10         Petroica rosea                   Rose Robin   60276
+8   Petroica rodinogaster                   Pink Robin   15608
+9   Petroica rodinogaster         Tasmanian Pink Robin      47
+10         Petroica rosea                   Rose Robin   60552
 ```
 
 This can be useful in searching for [paraphyletic](https://en.wikipedia.org/wiki/Paraphyly) or [polyphyletic](http://en.wikipedia.org/wiki/Polyphyly) groups. For example, to get counts of non-chordates:
@@ -146,11 +146,11 @@ non_chordates.head()
 ```
 ```output
            phylum     count
-0  Acanthocephala       481
-1        Annelida    329585
-2      Arthropoda  10086467
-3     Brachiopoda     11574
-4         Bryozoa     32837
+0  Acanthocephala       482
+1        Annelida    332234
+2      Arthropoda  10135041
+3     Brachiopoda     11634
+4         Bryozoa     32937
 ```
 
 # OPTIONAL: Deciding between `filters=`, `search_taxa()`, and taxonomic ranks
@@ -171,15 +171,15 @@ pitta_ranks
                                  scientificName   taxonRank  count
 0                                         Pitta       genus     70
 1                          Pitta (Erythropitta)    subgenus    882
-2            Pitta (Erythropitta) erythrogaster     species    189
+2            Pitta (Erythropitta) erythrogaster     species    190
 3   Pitta (Erythropitta) erythrogaster digglesi  subspecies      6
-4                            Pitta (Pitta) iris     species   6599
+4                            Pitta (Pitta) iris     species   6600
 5                       Pitta (Pitta) iris iris  subspecies     91
 6              Pitta (Pitta) iris johnstoneiana  subspecies     27
-7                      Pitta (Pitta) versicolor     species  30240
+7                      Pitta (Pitta) versicolor     species  30295
 8           Pitta (Pitta) versicolor intermedia  subspecies     64
 9            Pitta (Pitta) versicolor simillima  subspecies     53
-10          Pitta (Pitta) versicolor versicolor  subspecies    406
+10          Pitta (Pitta) versicolor versicolor  subspecies    424
 ```
 
 If, for instance, you have the correct species or subspecies name, then searching for matches against the species and subspecies fields, respectively, will provide more precise results. This is because the field `scientificName` may include subgenera. If you’ve used `search_taxa()` to get the ALA-matched name of a taxon and only want records identified to a particular level of classification, searching for matches against `scientificName` is recommended.
@@ -215,17 +215,17 @@ galah.atlas_counts(
 ```
 ```output
                                        scientificName  count
-0                      Aquila (Uroaetus) audax fleayi   5088
-1                                  Bettongia gaimardi   2282
+0                      Aquila (Uroaetus) audax fleayi   5090
+1                                  Bettongia gaimardi   2284
 2                        Bettongia gaimardi cuniculus     54
 3                         Bettongia gaimardi gaimardi      9
-4                   Melanodryas (Amaurodryas) vittata  15799
+4                   Melanodryas (Amaurodryas) vittata  15807
 5             Melanodryas (Amaurodryas) vittata kingi     16
-6           Melanodryas (Amaurodryas) vittata vittata     60
-7               Platycercus (Platycercus) caledonicus  51480
+6           Melanodryas (Amaurodryas) vittata vittata     62
+7               Platycercus (Platycercus) caledonicus  51508
 8       Platycercus (Platycercus) caledonicus brownii     24
 9   Platycercus (Platycercus) caledonicus caledonicus     50
-10                                        Sarcophilus    130
-11                               Sarcophilus harrisii  36554
+10                                        Sarcophilus    131
+11                               Sarcophilus harrisii  36607
 12                     Tyto novaehollandiae castanops     85
 ```

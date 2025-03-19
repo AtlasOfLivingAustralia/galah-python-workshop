@@ -32,10 +32,10 @@ galah.atlas_counts(
 ```output
                         dataResourceName  count
 0                                 FrogID  39840
-1                       NSW BioNet Atlas   4882
-2                  iNaturalist Australia   2578
-3                             NatureMapr    249
-4            Earth Guardians Weekly Feed    151
+1                       NSW BioNet Atlas   4884
+2                  iNaturalist Australia   2664
+3            Earth Guardians Weekly Feed    150
+4                             NatureMapr    133
 5      ALA species sightings and OzAtlas     16
 6           Victorian Biodiversity Atlas     10
 7                           FrogWatch SA      6
@@ -45,7 +45,7 @@ galah.atlas_counts(
 11                              SA Fauna      2
 ```
 
-We can see that there are 12 data resources that have provided the ALA observations of *Litoria peronii*, and surprisingly, FrogID provides the second most observations!
+We can see that there are 12 data resources that have provided the ALA observations of *Litoria peronii*.
 
 Now, in the query above, we specified that we want records since 2018.  However, we can also see how many records came from each year by adding `year` to the `group_by` arguments.
 
@@ -61,10 +61,10 @@ galah.atlas_counts(
 ```output
                         dataResourceName  year  count
 0                                 FrogID     -  39840
-1                       NSW BioNet Atlas     -   4882
-2                  iNaturalist Australia     -   2578
-3                             NatureMapr     -    249
-4            Earth Guardians Weekly Feed     -    151
+1                       NSW BioNet Atlas     -   4884
+2                  iNaturalist Australia     -   2664
+3            Earth Guardians Weekly Feed     -    150
+4                             NatureMapr     -    133
 5      ALA species sightings and OzAtlas     -     16
 6           Victorian Biodiversity Atlas     -     10
 7                           FrogWatch SA     -      6
@@ -72,14 +72,14 @@ galah.atlas_counts(
 9                              BowerBird     -      3
 10           Melbourne Water Frog Census     -      2
 11                              SA Fauna     -      2
-12                                     -  2018   5200
-13                                     -  2019   5469
-14                                     -  2020  13358
-15                                     -  2021  14469
-16                                     -  2022   7506
-17                                     -  2023    817
-18                                     -  2024    762
-19                                     -  2025    162
+12                                     -  2018   5181
+13                                     -  2019   5447
+14                                     -  2020  13334
+15                                     -  2021  14458
+16                                     -  2022   7496
+17                                     -  2023    800
+18                                     -  2024    753
+19                                     -  2025    245
 ```
 
 Now, we not only have the data resources providing observations of *Litoria peronii*, we can also see how many observations there were per year.
@@ -111,30 +111,30 @@ galah.atlas_counts(
 8                       NSW BioNet Atlas  2021   1244
 9                       NSW BioNet Atlas  2022    840
 10                      NSW BioNet Atlas  2023    205
-11                      NSW BioNet Atlas  2024     63
+11                      NSW BioNet Atlas  2024     65
 12                 iNaturalist Australia  2018    108
 13                 iNaturalist Australia  2019    113
-14                 iNaturalist Australia  2020    227
+14                 iNaturalist Australia  2020    228
 15                 iNaturalist Australia  2021    321
-16                 iNaturalist Australia  2022    409
-17                 iNaturalist Australia  2023    576
-18                 iNaturalist Australia  2024    665
-19                 iNaturalist Australia  2025    159
-20                            NatureMapr  2018     37
-21                            NatureMapr  2019     48
-22                            NatureMapr  2020     47
-23                            NatureMapr  2021     24
-24                            NatureMapr  2022     27
-25                            NatureMapr  2023     33
-26                            NatureMapr  2024     30
-27                            NatureMapr  2025      3
-28           Earth Guardians Weekly Feed  2018     30
-29           Earth Guardians Weekly Feed  2019     43
-30           Earth Guardians Weekly Feed  2020     24
-31           Earth Guardians Weekly Feed  2021     27
-32           Earth Guardians Weekly Feed  2022     22
-33           Earth Guardians Weekly Feed  2023      1
-34           Earth Guardians Weekly Feed  2024      4
+16                 iNaturalist Australia  2022    410
+17                 iNaturalist Australia  2023    577
+18                 iNaturalist Australia  2024    666
+19                 iNaturalist Australia  2025    241
+20           Earth Guardians Weekly Feed  2018     30
+21           Earth Guardians Weekly Feed  2019     43
+22           Earth Guardians Weekly Feed  2020     22
+23           Earth Guardians Weekly Feed  2021     26
+24           Earth Guardians Weekly Feed  2022     22
+25           Earth Guardians Weekly Feed  2023      1
+26           Earth Guardians Weekly Feed  2024      6
+27                            NatureMapr  2018     18
+28                            NatureMapr  2019     26
+29                            NatureMapr  2020     24
+30                            NatureMapr  2021     14
+31                            NatureMapr  2022     16
+32                            NatureMapr  2023     15
+33                            NatureMapr  2024     16
+34                            NatureMapr  2025      4
 35     ALA species sightings and OzAtlas  2018      7
 36     ALA species sightings and OzAtlas  2019      5
 37     ALA species sightings and OzAtlas  2020      1

@@ -79,7 +79,7 @@ galah.atlas_counts(
 ```
 ```output
    totalRecords
-0         88184
+0         86105
 ```
 
 ### Filter our data by year
@@ -137,7 +137,7 @@ galah.atlas_counts(
 ```
 ```output
    totalRecords
-0         62273
+0         61490
 ```
 
 As this is less than the 88184 records that were shown above, we can see we have already filtered the data.
@@ -199,7 +199,7 @@ galah.atlas_counts(
 ```
 ```output
    totalRecords
-0         47743
+0         47714
 ```
 
 ### Adding other filters: Data Resources 

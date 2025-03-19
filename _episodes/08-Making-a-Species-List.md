@@ -96,11 +96,11 @@ species_yass
 3     https://biodiversity.org.au/afd/taxa/ae56080e-...          Malurus (Malurus) cyaneus  ...         Superb Fairy-wren               830
 4     https://biodiversity.org.au/afd/taxa/5e0f496f-...  Platycercus (Platycercus) elegans  ...           Crimson Rosella               806
 ...                                                 ...                                ...  ...                       ...               ...
-1174  https://id.biodiversity.org.au/taxon/apni/5173...          Alternanthera denticulata  ...            Lesser Joyweed                 1
-1175  https://id.biodiversity.org.au/taxon/apni/5173...                Eucalyptus camphora  ...        Broad-leaved Sally                 1
-1176  https://id.biodiversity.org.au/taxon/apni/5174...                Euchiton sphaericus  ...            Common Cudweed                 1
-1177  https://id.biodiversity.org.au/taxon/apni/5174...                   Lactuca serriola  ...           Prickly Lettuce                 1
-1178  https://id.biodiversity.org.au/taxon/ausmoss/1...                 Thuidiopsis sparsa  ...                 Weft Moss                 1
+1179  https://id.biodiversity.org.au/taxon/apni/5173...          Alternanthera denticulata  ...            Lesser Joyweed                 1
+1180  https://id.biodiversity.org.au/taxon/apni/5173...           Arthropodium milleflorum  ...         Pale Vanilla-lily                 1
+1181  https://id.biodiversity.org.au/taxon/apni/5173...                Eucalyptus camphora  ...        Broad-leaved Sally                 1
+1182  https://id.biodiversity.org.au/taxon/apni/5174...                   Lactuca serriola  ...           Prickly Lettuce                 1
+1183  https://id.biodiversity.org.au/taxon/ausmoss/1...                 Thuidiopsis sparsa  ...                 Weft Moss                 1
 ```
 
 #### Using a shapefile to download a species list
@@ -108,22 +108,23 @@ species_yass
 To retrieve the spatial outline of Yass Valley, let’s download the latest Local Government Areas data from the [Australian Bureau of Statistics Digital Boundary files page](https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files). Find “Local Government Areas - 2024 - Shapefile” and click “Download ZIP”. Save the zip folder in your current directory and unzip it.
 
 ```python
+import geopandas as gpd
 LGAs_2024 = gpd.read_file("LGA_2024_AUST_GDA2020.shp")
 LGAs_2024
 ```
 ```output
-    LGA_CODE24                             LGA_NAME24  ...                                         LOCI_URI21                                           geometry
-0        10050                                 Albury  ...  https://linked.data.gov.au/dataset/asgsed3/LGA...  POLYGON ((146.86566 -36.07292, 146.86512 -36.0...
-1        10180                               Armidale  ...  https://linked.data.gov.au/dataset/asgsed3/LGA...  POLYGON ((152.38816 -30.52639, 152.38812 -30.5...
-2        10250                                Ballina  ...  https://linked.data.gov.au/dataset/asgsed3/LGA...  MULTIPOLYGON (((153.57106 -28.87381, 153.57106...
-3        10300                              Balranald  ...  https://linked.data.gov.au/dataset/asgsed3/LGA...  POLYGON ((143.00433 -33.78164, 143.01538 -33.7...
-4        10470                               Bathurst  ...  https://linked.data.gov.au/dataset/asgsed3/LGA...  POLYGON ((149.84877 -33.52784, 149.84864 -33.5...
-..         ...                                    ...  ...                                                ...                                                ...
-561      89799  Migratory - Offshore - Shipping (ACT)  ...  https://linked.data.gov.au/dataset/asgsed3/LGA...                                               None
-562      99399            Unincorp. Other Territories  ...  https://linked.data.gov.au/dataset/asgsed3/LGA...  MULTIPOLYGON (((167.94747 -29.12757, 167.94748...
-563      99499                  No usual address (OT)  ...  https://linked.data.gov.au/dataset/asgsed3/LGA...                                               None
-564      99799   Migratory - Offshore - Shipping (OT)  ...  https://linked.data.gov.au/dataset/asgsed3/LGA...                                               None
-565      ZZZZZ                      Outside Australia  ...  https://linked.data.gov.au/dataset/asgsed3/LGA...                                               None
+    LGA_CODE24                             LGA_NAME24  ...                                            geometry
+0        10050                                 Albury  ...  POLYGON ((146.86566 -36.07292, 146.86512 -36.0...
+1        10180                               Armidale  ...  POLYGON ((152.38816 -30.52639, 152.38812 -30.5...
+2        10250                                Ballina  ...  MULTIPOLYGON (((153.57106 -28.87381, 153.57106...
+3        10300                              Balranald  ...  POLYGON ((143.00433 -33.78164, 143.01538 -33.7...
+4        10470                               Bathurst  ...  POLYGON ((149.84877 -33.52784, 149.84864 -33.5...
+..         ...                                    ...  ...                                                ...
+561      89799  Migratory - Offshore - Shipping (ACT)  ...                                               None
+562      99399            Unincorp. Other Territories  ...  MULTIPOLYGON (((167.94747 -29.12757, 167.94748...
+563      99499                  No usual address (OT)  ...                                               None
+564      99799   Migratory - Offshore - Shipping (OT)  ...                                               None
+565      ZZZZZ                      Outside Australia  ...                                               None
 ```
 
 Now let’s use `to_crs()` to set the Coordinate Reference System (CRS) of our shapefile to EPSG:4326 (the standard used in cartography and GPS, also known as WGS84) so that it matches the projection of our data from the ALA.
@@ -162,17 +163,17 @@ species_yass
 ```
 ```output
                                                 Species                       Species Name  ...           Vernacular Name Number of records
-0     https://biodiversity.org.au/afd/taxa/5291343e-...                 Gymnorhina tibicen  ...         Australian Magpie             11086
-1     https://biodiversity.org.au/afd/taxa/ce17b284-...                Grallina cyanoleuca  ...               Magpie-lark              8062
+0     https://biodiversity.org.au/afd/taxa/5291343e-...                 Gymnorhina tibicen  ...         Australian Magpie             11087
+1     https://biodiversity.org.au/afd/taxa/ce17b284-...                Grallina cyanoleuca  ...               Magpie-lark              8060
 2     https://biodiversity.org.au/afd/taxa/2c33a1fd-...         Cacatua (Cacatua) galerita  ...  Sulphur-crested Cockatoo              8041
-3     https://biodiversity.org.au/afd/taxa/ae56080e-...          Malurus (Malurus) cyaneus  ...         Superb Fairy-wren              7500
-4     https://biodiversity.org.au/afd/taxa/5e0f496f-...  Platycercus (Platycercus) elegans  ...           Crimson Rosella              7387
+3     https://biodiversity.org.au/afd/taxa/ae56080e-...          Malurus (Malurus) cyaneus  ...         Superb Fairy-wren              7493
+4     https://biodiversity.org.au/afd/taxa/5e0f496f-...  Platycercus (Platycercus) elegans  ...           Crimson Rosella              7385
 ...                                                 ...                                ...  ...                       ...               ...
-3227  https://id.biodiversity.org.au/taxon/apni/5174...                   Dahlia x pinnata  ...             Garden Dahlia                 1
-3228  https://id.biodiversity.org.au/taxon/ausmoss/1...                Ceratodon purpureus  ...             Redshank Moss                 1
-3229  https://id.biodiversity.org.au/taxon/ausmoss/1...                    Bryum argenteum  ...               Silver Moss                 1
-3230  https://id.biodiversity.org.au/taxon/ausmoss/1...                 Thuidiopsis sparsa  ...                 Weft Moss                 1
-3231  https://id.biodiversity.org.au/taxon/ausmoss/1...                  Breutelia affinis  ...          Common Breutelia                 1
+3225  https://id.biodiversity.org.au/taxon/apni/5174...                   Dahlia x pinnata  ...             Garden Dahlia                 1
+3226  https://id.biodiversity.org.au/taxon/ausmoss/1...                Ceratodon purpureus  ...             Redshank Moss                 1
+3227  https://id.biodiversity.org.au/taxon/ausmoss/1...                    Bryum argenteum  ...               Silver Moss                 1
+3228  https://id.biodiversity.org.au/taxon/ausmoss/1...                 Thuidiopsis sparsa  ...                 Weft Moss                 1
+3229  https://id.biodiversity.org.au/taxon/ausmoss/1...                  Breutelia affinis  ...          Common Breutelia                 1
 ```
 
 # Cross-reference with threatened and sensitive species lists
@@ -201,7 +202,7 @@ galah.search_all(lists="New South Wales")[["species_list_uid", "listType", "isAu
 1            dr487     SENSITIVE_LIST             True         False
 ```
 
-We can return only species in Yass Valley on the New South Wales Conservation Status List (`dr650`) by adding the list ID `species_list_uid=dr650` to filters. Our query returns 59 species.
+We can return only species in Yass Valley on the New South Wales Conservation Status List (`dr650`) by adding the list ID `species_list_uid=dr650` to filters. Our query returns 58 species.
 
 ```python
 yass_threatened = galah.atlas_species(
@@ -214,7 +215,7 @@ yass_threatened
 
 ```output
                                               Species                               Species Name  ...                 Vernacular Name Number of records
-0   https://biodiversity.org.au/afd/taxa/6c646af8-...                   Callocephalon fimbriatum  ...              Gang-gang Cockatoo              1143
+0   https://biodiversity.org.au/afd/taxa/6c646af8-...                   Callocephalon fimbriatum  ...              Gang-gang Cockatoo              1145
 1   https://biodiversity.org.au/afd/taxa/46fca72f-...                       Polytelis swainsonii  ...                   Superb Parrot               960
 2   https://biodiversity.org.au/afd/taxa/a3e5376b-...                Petroica (Petroica) boodang  ...                   Scarlet Robin               775
 3   https://biodiversity.org.au/afd/taxa/5c1957dc-...           Gallinago (Gallinago) hardwickii  ...                  Latham's Snipe               436
@@ -237,42 +238,41 @@ yass_threatened
 20  https://biodiversity.org.au/afd/taxa/2cac777c-...                    Pseudophryne pengilleyi  ...        Northern Corroboree Frog                24
 21  https://biodiversity.org.au/afd/taxa/2063bf6d-...            Pachycephala (Timixos) olivacea  ...                  Olive Whistler                22
 22  https://biodiversity.org.au/afd/taxa/77bcae99-...                     Pteropus poliocephalus  ...          Grey-headed Flying-fox                19
-23   https://id.biodiversity.org.au/node/apni/7062437                 Rutidosis leptorhynchoides  ...              Button Wrinklewort                17
-24  https://biodiversity.org.au/afd/taxa/6485cd0c-...                      Hirundapus caudacutus  ...       White-throated Needletail                16
-25  https://biodiversity.org.au/afd/taxa/a51dca29-...                              Synemon plana  ...                 Golden Sun Moth                15
-26  https://biodiversity.org.au/afd/taxa/7dd0c4d5-...                                Delma impar  ...          Striped Legless Lizard                14
-27   https://id.biodiversity.org.au/node/apni/2910323                     Ammobium craspedioides  ...                      Yass Daisy                13
-28  https://id.biodiversity.org.au/taxon/apni/5139...                         Caladenia concolor  ...           Crimson Spider Orchid                10
+23   https://id.biodiversity.org.au/node/apni/2910323                     Ammobium craspedioides  ...                      Yass Daisy                17
+24   https://id.biodiversity.org.au/node/apni/7062437                 Rutidosis leptorhynchoides  ...              Button Wrinklewort                17
+25  https://biodiversity.org.au/afd/taxa/6485cd0c-...                      Hirundapus caudacutus  ...       White-throated Needletail                16
+26  https://biodiversity.org.au/afd/taxa/a51dca29-...                              Synemon plana  ...                 Golden Sun Moth                14
+27  https://biodiversity.org.au/afd/taxa/320aeab1-...             Artamus (Angroyan) cyanopterus  ...               Dusky Woodswallow                11
+28  https://biodiversity.org.au/afd/taxa/7dd0c4d5-...                                Delma impar  ...          Striped Legless Lizard                11
 29  https://biodiversity.org.au/afd/taxa/003a110b-...                            Keyacris scurra  ...  Keyâs Matchstick Grasshopper                 9
-30  https://biodiversity.org.au/afd/taxa/320aeab1-...             Artamus (Angroyan) cyanopterus  ...               Dusky Woodswallow                 8
-31  https://biodiversity.org.au/afd/taxa/52149285-...                        Dasyurus viverrinus  ...                          Luaner                 8
-32  https://biodiversity.org.au/afd/taxa/8f7da937-...                         Bettongia gaimardi  ...               Tasmanian Bettong                 7
-33   https://id.biodiversity.org.au/node/apni/2897239                        Grevillea iaspicula  ...            Wee Jasper Grevillea                 7
-34  https://biodiversity.org.au/afd/taxa/d1c5dee0-...                Ninox (Rhabdoglaux) strenua  ...                    Powerful Owl                 6
-35   https://id.biodiversity.org.au/node/apni/2900093                       Eucalyptus aggregata  ...                       Black Gum                 5
-36   https://id.biodiversity.org.au/node/apni/2918079                      Wilsonia rotundifolia  ...             Round-leaf Wilsonia                 5
-37  https://id.biodiversity.org.au/taxon/apni/5143...                         Eucalyptus radiata  ...          Narrow-leaf Peppermint                 5
-38  https://biodiversity.org.au/afd/taxa/0e912185-...                      Aprasia parapulchella  ...         Pink-tailed Worm-lizard                 2
-39  https://biodiversity.org.au/afd/taxa/1b653e0c-...                      Petaurus norfolcensis  ...                 Squirrel Glider                 2
-40  https://biodiversity.org.au/afd/taxa/1c950a15-...                    Litoria booroolongensis  ...                 Booroolong Frog                 2
-41  https://biodiversity.org.au/afd/taxa/2fd949f5-...                           Litoria castanea  ...        Yellow-spotted Tree Frog                 2
-42  https://biodiversity.org.au/afd/taxa/796b9811-...       Petroica (Erythrodryas) rodinogaster  ...                      Pink Robin                 2
-43  https://biodiversity.org.au/afd/taxa/d5b6c816-...                Falco (Hierofalco) subniger  ...                    Black Falcon                 2
-44   https://id.biodiversity.org.au/node/apni/2897349                         Pomaderris pallida  ...                 Pale Pomaderris                 2
-45   https://id.biodiversity.org.au/node/apni/2920809                          Eucalyptus pumila  ...                 Pokolbin Mallee                 2
-46  https://biodiversity.org.au/afd/taxa/1f6b7596-...  Calyptorhynchus (Calyptorhynchus) lathami  ...           Glossy Black-cockatoo                 1
-47  https://biodiversity.org.au/afd/taxa/5815e99d-...                     Lophochroa leadbeateri  ...       Major Mitchell's Cockatoo                 1
-48  https://biodiversity.org.au/afd/taxa/5f79ff26-...         Climacteris (Climacteris) picumnus  ...               Brown Treecreeper                 1
-49  https://biodiversity.org.au/afd/taxa/6231c7a7-...                         Varanus rosenbergi  ...                   Heath Monitor                 1
-50  https://biodiversity.org.au/afd/taxa/715a2874-...                         Lophoictinia isura  ...              Square-tailed Kite                 1
-51  https://biodiversity.org.au/afd/taxa/8303d47d-...                      Anseranas semipalmata  ...                    Magpie Goose                 1
-52  https://biodiversity.org.au/afd/taxa/e9d6fbbd-...                     Phascolarctos cinereus  ...                           Koala                 1
-53   https://id.biodiversity.org.au/node/apni/2897969                        Eucalyptus nicholii  ...  Narrow-leaved Black Peppermint                 1
-54   https://id.biodiversity.org.au/node/apni/2901250                          Pimelea bracteata  ...                             NaN                 1
-55   https://id.biodiversity.org.au/node/apni/2916272                            Swainsona recta  ...                Small Purple-pea                 1
-56   https://id.biodiversity.org.au/node/apni/2917559                          Hakea pulvinifera  ...               Lake Keepit Hakea                 1
-57  https://id.biodiversity.org.au/taxon/apni/5140...                       Prasophyllum petilum  ...                    A Leekorchid                 1
-58  https://id.biodiversity.org.au/taxon/apni/5144...                    Eucalyptus pulverulenta  ...               Silver-leafed Gum                 1
+30  https://biodiversity.org.au/afd/taxa/52149285-...                        Dasyurus viverrinus  ...                          Luaner                 8
+31  https://biodiversity.org.au/afd/taxa/8f7da937-...                         Bettongia gaimardi  ...               Tasmanian Bettong                 7
+32   https://id.biodiversity.org.au/node/apni/2897239                        Grevillea iaspicula  ...            Wee Jasper Grevillea                 7
+33  https://biodiversity.org.au/afd/taxa/d1c5dee0-...                Ninox (Rhabdoglaux) strenua  ...                    Powerful Owl                 6
+34   https://id.biodiversity.org.au/node/apni/2900093                       Eucalyptus aggregata  ...                       Black Gum                 5
+35   https://id.biodiversity.org.au/node/apni/2918079                      Wilsonia rotundifolia  ...             Round-leaf Wilsonia                 5
+36  https://id.biodiversity.org.au/taxon/apni/5143...                         Eucalyptus radiata  ...          Narrow-leaf Peppermint                 5
+37  https://biodiversity.org.au/afd/taxa/0e912185-...                      Aprasia parapulchella  ...         Pink-tailed Worm-lizard                 2
+38  https://biodiversity.org.au/afd/taxa/1b653e0c-...                      Petaurus norfolcensis  ...                 Squirrel Glider                 2
+39  https://biodiversity.org.au/afd/taxa/1c950a15-...                    Litoria booroolongensis  ...                 Booroolong Frog                 2
+40  https://biodiversity.org.au/afd/taxa/796b9811-...       Petroica (Erythrodryas) rodinogaster  ...                      Pink Robin                 2
+41  https://biodiversity.org.au/afd/taxa/d5b6c816-...                Falco (Hierofalco) subniger  ...                    Black Falcon                 2
+42   https://id.biodiversity.org.au/node/apni/2897349                         Pomaderris pallida  ...                 Pale Pomaderris                 2
+43   https://id.biodiversity.org.au/node/apni/2920809                          Eucalyptus pumila  ...                 Pokolbin Mallee                 2
+44  https://id.biodiversity.org.au/taxon/apni/5139...                         Caladenia concolor  ...           Crimson Spider Orchid                 2
+45  https://biodiversity.org.au/afd/taxa/1f6b7596-...  Calyptorhynchus (Calyptorhynchus) lathami  ...           Glossy Black-cockatoo                 1
+46  https://biodiversity.org.au/afd/taxa/5815e99d-...                     Lophochroa leadbeateri  ...       Major Mitchell's Cockatoo                 1
+47  https://biodiversity.org.au/afd/taxa/5f79ff26-...         Climacteris (Climacteris) picumnus  ...               Brown Treecreeper                 1
+48  https://biodiversity.org.au/afd/taxa/6231c7a7-...                         Varanus rosenbergi  ...                   Heath Monitor                 1
+49  https://biodiversity.org.au/afd/taxa/715a2874-...                         Lophoictinia isura  ...              Square-tailed Kite                 1
+50  https://biodiversity.org.au/afd/taxa/8303d47d-...                      Anseranas semipalmata  ...                    Magpie Goose                 1
+51  https://biodiversity.org.au/afd/taxa/e9d6fbbd-...                     Phascolarctos cinereus  ...                           Koala                 1
+52   https://id.biodiversity.org.au/node/apni/2897969                        Eucalyptus nicholii  ...  Narrow-leaved Black Peppermint                 1
+53   https://id.biodiversity.org.au/node/apni/2901250                          Pimelea bracteata  ...                             NaN                 1
+54   https://id.biodiversity.org.au/node/apni/2916272                            Swainsona recta  ...                Small Purple-pea                 1
+55   https://id.biodiversity.org.au/node/apni/2917559                          Hakea pulvinifera  ...               Lake Keepit Hakea                 1
+56  https://id.biodiversity.org.au/taxon/apni/5140...                       Prasophyllum petilum  ...                    A Leekorchid                 1
+57  https://id.biodiversity.org.au/taxon/apni/5144...                    Eucalyptus pulverulenta  ...               Silver-leafed Gum                 1
 ```
 
 We can also return only species in Yass Valley on the New South Wales Conservation Status List (`dr487`) by adding the list ID `species_list_uid=dr487` to filters. Our query returns 12 species.
@@ -288,13 +288,13 @@ yass_sensitive
 
 ```output
                                               Species                               Species Name  ...            Vernacular Name Number of records
-0   https://biodiversity.org.au/afd/taxa/6c646af8-...                   Callocephalon fimbriatum  ...         Gang-gang Cockatoo              1143
+0   https://biodiversity.org.au/afd/taxa/6c646af8-...                   Callocephalon fimbriatum  ...         Gang-gang Cockatoo              1145
 1   https://biodiversity.org.au/afd/taxa/46fca72f-...                       Polytelis swainsonii  ...              Superb Parrot               960
 2   https://biodiversity.org.au/afd/taxa/a2399fe3-...                Parvipsitta porphyrocephala  ...    Purple-crowned Lorikeet                31
 3   https://biodiversity.org.au/afd/taxa/2cac777c-...                    Pseudophryne pengilleyi  ...   Northern Corroboree Frog                24
-4   https://id.biodiversity.org.au/taxon/apni/5139...                         Caladenia concolor  ...      Crimson Spider Orchid                10
-5    https://id.biodiversity.org.au/node/apni/2897239                        Grevillea iaspicula  ...       Wee Jasper Grevillea                 7
-6   https://biodiversity.org.au/afd/taxa/d1c5dee0-...                Ninox (Rhabdoglaux) strenua  ...               Powerful Owl                 6
+4    https://id.biodiversity.org.au/node/apni/2897239                        Grevillea iaspicula  ...       Wee Jasper Grevillea                 7
+5   https://biodiversity.org.au/afd/taxa/d1c5dee0-...                Ninox (Rhabdoglaux) strenua  ...               Powerful Owl                 6
+6   https://id.biodiversity.org.au/taxon/apni/5139...                         Caladenia concolor  ...      Crimson Spider Orchid                 2
 7   https://biodiversity.org.au/afd/taxa/1f6b7596-...  Calyptorhynchus (Calyptorhynchus) lathami  ...      Glossy Black-cockatoo                 1
 8   https://biodiversity.org.au/afd/taxa/5815e99d-...                     Lophochroa leadbeateri  ...  Major Mitchell's Cockatoo                 1
 9   https://biodiversity.org.au/afd/taxa/715a2874-...                         Lophoictinia isura  ...         Square-tailed Kite                 1
